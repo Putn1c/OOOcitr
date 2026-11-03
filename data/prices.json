@@ -1,0 +1,6 @@
+{
+  "geodesic": {"base_price": 50000, "price_per_ha": 1500},
+  "geological": {"base_price": 80000, "price_per_ha": 2500},
+  "ecological": {"base_price": 60000, "price_per_ha": 1800},
+  "hydrometeorological": {"base_price": 70000, "price_per_ha": 2000}
+}
