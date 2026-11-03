@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Результат расчёта — ООО «ЦИТР»</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="card">
+    <h1>Результат расчёта</h1>
+
+    <table class="result">
+        <tr><th>Вид изысканий</th><td>{{ result.survey_name }}</td></tr>
+        <tr><th>Площадь участка</th><td>{{ result.area_ha }} га</td></tr>
+        <tr><th>Категория сложности</th><td>{{ result.complexity }}</td></tr>
+        <tr><th>Регион</th><td>{{ result.region }}</td></tr>
+        <tr class="total"><th>Стоимость</th><td>{{ "%.2f"|format(result.cost_rub) }} руб.</td></tr>
+        <tr class="total"><th>Нормативный срок</th><td>{{ result.deadline_days }} раб. дней</td></tr>
+    </table>
+
+    <form action="/export" method="post" style="margin-top: 1.5rem;">
+        <input type="hidden" name="survey_type" value="{{ result.survey_type }}">
+        <input type="hidden" name="area_ha" value="{{ result.area_ha }}">
+        <input type="hidden" name="complexity" value="{{ result.complexity }}">
+        <input type="hidden" name="region" value="{{ result.region }}">
+        <button type="submit">Скачать XLSX</button>
+    </form>
+
+    <a href="/" class="back">← Новый расчёт</a>
+</main>
+</body>
+</html>
